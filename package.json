@@ -1,0 +1,50 @@
+{
+  "name": "vite-singlet-tailor",
+  "version": "0.1.0",
+  "description": "Bundle Vite apps into single HTML files with embedded source, optional Tailwind CDN, and auto-numbered output",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "bun build ./src/index.ts --outdir ./dist --target node && bun run build:types",
+    "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist",
+    "prepublishOnly": "bun run build"
+  },
+  "peerDependencies": {
+    "vite": "^5.0.0 || ^6.0.0",
+    "vite-plugin-singlefile": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "vite": "^6.0.0",
+    "vite-plugin-singlefile": "^2.0.0"
+  },
+  "keywords": [
+    "vite",
+    "vite-plugin",
+    "singlefile",
+    "single-file",
+    "html",
+    "bundle",
+    "tailwind",
+    "cdn",
+    "embed",
+    "source"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aussieljk/vite-singlet-tailor"
+  }
+}
