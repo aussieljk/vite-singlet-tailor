@@ -18,7 +18,12 @@
   "scripts": {
     "build": "bun build ./src/index.ts --outdir ./dist --target node && bun run build:types",
     "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist",
-    "prepublishOnly": "bun run build"
+    "prepublishOnly": "bun run build",
+    "typecheck": "tsc --noEmit",
+    "check": "bun run workflows:check && bun run typecheck && bun run build",
+    "release": "bun scripts/release.ts",
+    "workflows": "bun ci/generate.ts",
+    "workflows:check": "bun ci/generate.ts --check"
   },
   "peerDependencies": {
     "vite": "^5.0.0 || ^6.0.0",
@@ -28,7 +33,8 @@
     "@types/node": "^20.0.0",
     "typescript": "^5.0.0",
     "vite": "^6.0.0",
-    "vite-plugin-singlefile": "^2.0.0"
+    "vite-plugin-singlefile": "^2.0.0",
+    "@types/bun": "latest"
   },
   "keywords": [
     "vite",
@@ -45,6 +51,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aussieljk/vite-singlet-tailor"
-  }
+    "url": "git+https://github.com/aussieljk/vite-singlet-tailor.git"
+  },
+  "packageManager": "bun@1.3.11"
 }
