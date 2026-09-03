@@ -1,6 +1,6 @@
 {
   "name": "vite-singlet-tailor",
-  "version": "0.1.0",
+  "version": "0.1.1-rc.0",
   "description": "Bundle Vite apps into single HTML files with embedded source, optional Tailwind CDN, and auto-numbered output",
   "type": "module",
   "main": "./dist/index.js",
